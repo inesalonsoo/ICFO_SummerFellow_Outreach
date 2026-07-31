@@ -1,0 +1,18 @@
+# Entorn virtual de Python
+manim_env/
+
+# Cache de Python
+__pycache__/
+*.pyc
+
+# Cache de renderitzat de Manim (imatges intermitges, textos LaTeX, etc.)
+scenes/media/**/partial_movie_files/
+scenes/media/images/
+scenes/media/texts/
+
+# Renders finals en alta qualitat (pesen molt; es regeneren amb `manim -qh -t <fitxer> <Escena>`)
+scenes/media/videos/*/1080p60/
+
+# Sistema
+.DS_Store
+Thumbs.db

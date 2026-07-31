@@ -1,0 +1,21 @@
+Inés Alonso Summer Fellow 2026
+Guió divulgació científica
+Les plantes són com una diminuta central elèctrica: transformen la llum del sol en vida. Però no poden predir quanta els hi arribarà cada dia. Passa un núvol i, en un segon, la llum es pot multiplicar per deu.
+Proposta visual (stock i manim): Timelapse de camps/plantes al sol; després un primer pla d'una fulla amb la llum travessant-la. Un núvol passa pel sol i la llum canvia de cop. També un petit mesurador d'intensitat que es dispara.
+ Si n’hi ha massa i no es disposa de la protecció adequada, l’organisme podria cremar la seva pròpia maquinària. Per això les plantes han desenvolupat un interruptor molecular fet de proteïnes: s'encén per dissipar l'energia sobrant en forma de calor, i s'apaga quan l’entorn torna a ser segur. 
+Proposta visual: tot es torna d’un blanc encegador. Transició a una animació d'interruptor que commuta ENCÈS (ones de calor i més il·luminat) / APAGAT. Es pot posar un dibuix d’una proteïna sobre l’interruptor.
+Elles es protegeixen com quan tu tanques els ulls en sortir a un entorn molt més lluminós que aquell on estaves, per protegir les teves retines de l'excés de llum. 
+Proposta visual: Una persona que surt d'un espai fosc a ple sol i acluca els ulls / es tapa la cara. Podria ser jo.
+Les proteïnes funcionen amb un mecanisme equivalent, l’anomenem Non-photochemical Quenching (NPQ).
+Proposta visual: surto jo dient això, amb el text del concepte (NPQ) a la imatge. Després presento al grup.
+A l'ICFO, al grup Photon Harvesting estudiem com funciona aquest interruptor, com de ràpid s'encén i s'apaga, i en quines condicions. Però tot passa en proteïnes milions de vegades més petites que una cèl·lula, en milionèsimes de segon. Cap microscopi pot gravar aquesta pel·lícula en temps real amb precisió atòmica. Per això, una part del grup ho reconstrueix dins d'un ordinador.
+Proposta visual: imatges del grup. La primera frase pot ser alguna cosa al lab i la última sortim als ordinadors de la oficina mirant Molecular Dynamic Simulations.
+A les simulacions de dinàmica molecular, el resultat és una pel·lícula de la molècula: àtom a àtom, fotograma a fotograma.
+Però aquesta pel·lícula té milers d'àtoms al llarg de milions de fotogrames i trobar a ull l'interruptor movent-se enmig de tants àtoms que vibren constantment no és gens fàcil. 
+Proposta visual: Aquí podríem posar clips de simulacions directament, ja no sortim nosaltres mirant l’ordinador. Només la visualització de la pantalla, proteïnes vibrant. 
+Aquí hi ha la trampa: els moviments més grans i sorollosos no són els importants. Una proteïna pot trontollar de valent i no fer res. L'interruptor de debò sol ser un moviment lent i poc freqüent. Discret, però decisiu. Per això deixem de preguntar 'què es mou més?' i comencem a preguntar 'què es mou més lentament?'
+Proposta visual: una part de Manim: comptador "milers d'àtoms × milions de fotogrames". Sensació de soroll, de no trobar-hi res a ull. Després puc sortir jo fent la pregunta.
+Això és el que fa un mètode anomenat TICA (Time-lagged Independent Component Analysis). Escruta tot aquest moviment i conserva només els patrons més lents i persistents, filtrant la vibració. El núvol caòtic d'àtoms es converteix en un mapa senzill que descriu de manera completa el comportament d’aquestes proteïnes en diferents condicions i circumstàncies.
+Proposta visual: alguna cosa amb manim que ajudi a veure la reducció de dimensionalitat de forma visual, no he pogut mirar bé encara com.
+I, gràcies a això, podem llegir com es defensa una planta del excés de llum solar, descobrint així un dels mecanismes de protecció més poderosos de la natura.
+Proposta visual: Tornada a la planta/fulla de l'obertura, ara amb una llum bonica i saludable. Rètol final: nom del grup + logotip ICFO
