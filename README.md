@@ -6,6 +6,11 @@ grup Photon Harvesting de l'ICFO. Guió complet a
 [`Inés Alonso Divulgació Summer Fellowship.docx`](Inés%20Alonso%20Divulgació%20Summer%20Fellowship.docx)
 ([text pla](script_extracted.txt)).
 
+**Abans de continuar el treball, llegeix [`PROGRESS.md`](PROGRESS.md)**: hi ha
+el mapa guió→escenes (què està fet, què falta), i el *perquè* de les
+decisions no òbvies (per què PDB 2BHW, per què monòmer, per què 234 àtoms
+Cα, com es va validar TICA, etc.).
+
 Les animacions es fan amb [Manim Community](https://docs.manim.community/),
 renderitzades amb fons transparent perquè es puguin superposar sobre
 metratge real.
