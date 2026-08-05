@@ -11,6 +11,9 @@ scenes/media/images/
 scenes/media/texts/
 
 # Renders finals en alta qualitat (pesen molt; es regeneren amb `manim -qh -t <fitxer> <Escena>`)
+# El nom de la carpeta el genera Manim com "<pixel_height>p<fps>". 1920p60 és el format
+# vertical 9:16 actual; 1080p60 queda per compatibilitat amb renders antics horitzontals.
+scenes/media/videos/*/1920p60/
 scenes/media/videos/*/1080p60/
 
 # Sistema

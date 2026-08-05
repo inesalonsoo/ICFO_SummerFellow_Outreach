@@ -5,6 +5,12 @@ from pathlib import Path
 import numpy as np
 from manim import *
 
+# Format vertical per a xarxes (reels/stories): 9:16 en lloc del 16:9 per defecte.
+config.frame_width = 9
+config.frame_height = 16
+config.pixel_width = 1080
+config.pixel_height = 1920
+
 DATA_DIR = Path(__file__).parent / "data"
 
 
@@ -34,7 +40,9 @@ class TicaScene(Scene):
 
         raw_pts = [np.array([p[0], p[1], p[2] * 0.3]) for p in backbone["points"]]
         n_real = len(raw_pts)
-        shift = np.array([-3.0, 0.0, 0.0])
+        # Mateix desplaçament que a AtomCounter (nucli a la meitat superior, en
+        # vertical no hi ha amplada per posar-lo al costat del text).
+        shift = np.array([0.0, 3.2, 0.0])
         base_pts = [p + shift for p in raw_pts]
 
         rainbow = color_gradient([BLUE_D, TEAL, GREEN, YELLOW, ORANGE, RED], n_real)
@@ -139,8 +147,10 @@ class TicaScene(Scene):
         all_dots.add_updater(update_dots)
         edges_live.add_updater(edges_live_update)
 
+        # Zona de text: centrada, sota el núvol de punts, sense baixar de la
+        # zona segura inferior (hi pot quedar tapada per la descripció del reel).
         label = Text("distàncies vibrant...", font_size=22, color=WHITE, weight=BOLD)
-        label.set_opacity(0.85).to_edge(RIGHT, buff=1.4).shift(UP * 2.6)
+        label.set_opacity(0.85).move_to(DOWN * 1.0)
         self.play(FadeIn(label, run_time=0.4))
         self.wait(2.0)
 
@@ -181,7 +191,7 @@ class TicaScene(Scene):
         ic_sub = Text("(el mode més lent, extret del soroll)", font_size=17, color=WHITE)
         ic_sub.set_opacity(0.8)
         ic_group = VGroup(ic_label, ic_sub).arrange(DOWN, buff=0.1)
-        ic_group.to_edge(RIGHT, buff=1.0).shift(UP * 2.6)
+        ic_group.move_to(DOWN * 1.0)
 
         self.play(
             FadeOut(edges_live),
@@ -198,7 +208,9 @@ class TicaScene(Scene):
             x_length=3.0, y_length=1.6,
             axis_config={"stroke_width": 1.2, "stroke_opacity": 0.5, "include_ticks": False},
         )
-        axes.to_edge(RIGHT, buff=1.1).shift(DOWN * 2.0)
+        # Sota el bloc de text, sense entrar a la franja inferior (buff de
+        # seguretat pels subtítols/descripció del reel).
+        axes.move_to(DOWN * 3.6)
 
         t_frac = np.array(tica["sample_t_frac"])
         raw = np.array(tica["raw_signal_sample"])

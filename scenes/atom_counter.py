@@ -5,6 +5,12 @@ from pathlib import Path
 import numpy as np
 from manim import *
 
+# Format vertical per a xarxes (reels/stories): 9:16 en lloc del 16:9 per defecte.
+config.frame_width = 9
+config.frame_height = 16
+config.pixel_width = 1080
+config.pixel_height = 1920
+
 DATA_PATH = Path(__file__).parent / "data" / "lhcii_ca_backbone.json"
 
 
@@ -37,8 +43,10 @@ class AtomCounter(Scene):
         n_pairs = data["n_pairs_simulation"]
         n_extra = n_sim - n_real  # residus flexibles no resolts (dibuixats discontinus)
 
-        # Encaixem el núvol a la meitat esquerra perquè hi càpiga el comptador a la dreta
-        shift = LEFT * 3.0
+        # En vertical no hi ha amplada per posar el núvol i el comptador costat
+        # a costat: el núvol va a la meitat superior i el comptador a sota, sense
+        # arribar a la zona inferior (hi pot quedar tapat per la descripció del reel).
+        shift = UP * 3.2
         pts = [p + np.array([shift[0], shift[1], 0]) for p in pts]
 
         rainbow = color_gradient([BLUE_D, TEAL, GREEN, YELLOW, ORANGE, RED], n_real)
@@ -62,7 +70,7 @@ class AtomCounter(Scene):
             ).next_to(counter_label, UP, buff=0.18)
         )
         counter_group = VGroup(counter_label, counter_number)
-        counter_group.arrange(UP, buff=0.18).to_edge(RIGHT, buff=1.6)
+        counter_group.arrange(UP, buff=0.18).move_to(DOWN * 4.2)
 
         # --- Fase 1: es dibuixa el backbone real ---
         self.play(

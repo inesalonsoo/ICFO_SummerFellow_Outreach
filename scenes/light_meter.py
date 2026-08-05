@@ -1,5 +1,11 @@
 from manim import *
 
+# Format vertical per a xarxes (reels/stories): 9:16 en lloc del 16:9 per defecte.
+config.frame_width = 9
+config.frame_height = 16
+config.pixel_width = 1080
+config.pixel_height = 1920
+
 
 class LightMeter(Scene):
     """Petit mesurador d'intensitat de llum (VU meter) que es dispara
@@ -64,7 +70,9 @@ class LightMeter(Scene):
         caption.set_opacity(0.85).next_to(segments, DOWN, buff=0.22)
 
         meter = VGroup(backing, segments, caption)
-        meter.scale(0.75).to_corner(DR, buff=0.5)
+        # A dalt a la dreta, no a baix: en vertical la part inferior sol quedar
+        # tapada per la descripció del reel.
+        meter.scale(0.9).to_corner(UR, buff=0.6)
 
         # Número "×N" que segueix el mesurador un cop ja està posicionat
         value_text = always_redraw(

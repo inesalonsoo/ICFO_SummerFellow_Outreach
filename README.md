@@ -42,9 +42,35 @@ manim -ql <fitxer>.py <NomEscena>      # -ql baixa qualitat, per iterar rapid
 | [`tica_scene.py`](scenes/tica_scene.py) | `TicaScene` | Continuació directa d'`AtomCounter`: la vibració ràpida es filtra amb TICA real fins a un únic mode lent, visualitzat com a vectors. |
 | [`test_installation.py`](scenes/test_installation.py) | `TestInstallation` | Escena mínima per comprovar que Manim + FFmpeg funcionen. |
 
-Previsualitzacions en baixa qualitat (480p) de cada clip estan incloses a
-`scenes/media/videos/*/480p15/`. Els renders finals en 1080p no es pugen al
-repositori (pesen massa); es regeneren amb la comanda `-qh -t` de dalt.
+Previsualitzacions en baixa qualitat (framerate baix, 15fps) de cada clip
+estan incloses a `scenes/media/videos/*/1920p15/`. Els renders finals a
+1080×1920 (`-qh -t`) no es pugen al repositori (pesen massa); es regeneren
+amb la comanda de dalt.
+
+## Format: vertical (9:16) per a xarxes
+
+Els vídeos es publiquen en reels/stories, així que totes les escenes fixen
+el format vertical al principi del fitxer, abans de la classe `Scene`:
+
+```python
+config.frame_width = 9
+config.frame_height = 16
+config.pixel_width = 1080
+config.pixel_height = 1920
+```
+
+Aquesta assignació sobreescriu qualsevol mida que fixin els flags `-ql/-qm/-qh`
+(es fa en temps d'importació del mòdul, després que Manim ja hagi parsejat els
+flags de qualitat). Per tant `-ql` ja no dona un preview petit en 480p: dona
+el mateix pla 1080×1920 però a 15fps en lloc de 60fps — més ràpid de renderitzar,
+però no més lleuger en resolució. D'aquí ve el canvi de nom de carpeta de
+`480p15` a `1920p15`.
+
+**Regla de composició**: no es posa text a prop de la vora inferior del
+fotograma (per sota d'uns 2,5-3 unitats des de baix, en un frame de 16
+d'alçada) perquè la descripció del reel sol tapar-la. Els elements de
+capçalera (mesuradors, comptadors, etiquetes) es col·loquen a dalt o al
+centre, mai enganxats a baix.
 
 ## Base científica
 

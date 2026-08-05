@@ -68,8 +68,28 @@ aquest fitxer explica *per què* les coses són com són.
   ràpid durant el desenvolupament.
 - **Vídeos 1080p NO es pugen al repo** (superen el límit de 100MB de GitHub
   en el cas de TICA — 331MB). Al `.gitignore`. Es regeneren en local amb
-  `manim -qh -t`. Només els previews 480p (uns pocs centenars de KB) estan
-  versionats.
+  `manim -qh -t`. Només els previews (uns quants centenars de KB a uns pocs
+  MB) estan versionats.
+- **Format vertical 9:16, no horitzontal**: els vídeos es publiquen a
+  xarxes (reels/stories), així que les tres escenes fixen
+  `config.frame_width/height` i `config.pixel_width/height` al principi del
+  fitxer (abans de `from manim import *`... just després, veure codi). Això
+  va obligar a redistribuir el contingut: abans el núvol de punts
+  (`atom_counter.py`/`tica_scene.py`) anava a l'esquerra i el text/comptador
+  a la dreta (disseny pensat per 16:9); ara el núvol va a la meitat superior
+  (`shift = UP * 3.2`) i el text/comptador/gràfic van apilats a sota, sense
+  baixar de ~2,5-3 unitats del marge inferior (zona que la descripció del
+  reel sol tapar). El mesurador de llum (`light_meter.py`) es va moure de
+  la cantonada inferior-dreta (`to_corner(DR)`) a la superior-dreta
+  (`to_corner(UR)`) pel mateix motiu — **no és un canvi d'estil visual**
+  (l'estil de barra vertical continua sent el triat), només de posició.
+  **Important**: fixar `pixel_width/pixel_height` a config sobreescriu la
+  resolució que assignen els flags `-ql/-qm/-qh` (l'assignació passa en
+  importar el mòdul, després que Manim ja hagi parsejat els flags) — `-ql`
+  ja no renderitza a 480p, sinó al mateix 1080×1920 però a 15fps. Per això
+  la carpeta de previews va passar de `480p15` a `1920p15`, i el patró
+  d'alta qualitat al `.gitignore` de `1080p60` a `1920p60` (es manté
+  `1080p60` també per compatibilitat amb renders antics horitzontals).
 
 ## Com continuar
 
